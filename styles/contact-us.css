@@ -1,0 +1,213 @@
+/* 
+    RMIT University Vietnam
+    Course: COSC2430 Web Programming
+    Semester: 2023A
+    Assessment: Assignment 1
+    Author: Nguyen Tran Ha Anh
+    ID: s3938490
+    Acknowledgement:
+ */
+ 
+/* -------------------------------------------- Contact section code for desktop devices --------------------------------------------- */
+
+/* Set up the layout for the contact section */
+#contact-form-section {
+  display: flex;
+  height: 80vh;
+  align-items: center; 
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--primary-color);
+}
+
+/* Change the backgorund color of the contact form */
+.container {
+  max-width: 450px;
+  width: 100%;
+  background-color: white;
+  padding: 25px 30px; 
+  border-radius: 5px;
+  margin-left: 10%;
+  z-index: 100;
+  border: 1px solid #ccc;
+  color: #2F70AF;
+}
+
+/* Add the background color to display the bookstore information */
+.backdrop {
+  width: 100%;
+  height: 45%;
+  position: absolute;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Set the design of the content */
+.bookstore-info {
+  margin-right: 16%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 450px;
+  color: var(--primary-color);
+}
+
+/* -------------------------------------------- Contact section code for devices have max-width 1256px --------------------------------------------- */
+@media only screen and (max-width: 1256px) {
+  
+  /* Add the space on the right side */
+  .bookstore-info {
+    max-width: 300px;
+    margin-right: 5%;
+  }
+}
+
+/* Change the font size of the heading */
+.heading {
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+/* Set up the layout for the booksotre's information */
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Change the font size of the content */
+.content p {
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+/* Add space up and down for the content */
+.email, .phone {
+  margin: 10px 0;
+}
+
+/* Change the font size of the title of thelocation */
+.location span {
+  font-size: 20px;
+}
+
+/* Change the font size of the location */
+.location p {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+/* Set up the layout for the contact form */
+.info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0 12px 0;
+}
+
+/* Set up the width of the input based on div size */
+.input-box, .contact-purpose {
+  margin-bottom: 15px;
+  width: calc(100%/2 - 20px);
+}
+
+/* Set up the display of each input */
+.input-box .details , .contact-purpose-title, .receive-newspaper-title {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+/* Css the input and option in the contact form */
+.input-box input, #contact-purpose-option{
+  height: 45px;
+  outline: none;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  font-size: 16px;
+  border-bottom-width: 2px;
+  transition: all .3s ease;
+}
+
+/* Chenge the width of the contact purpose choice */
+#contact-purpose-option {
+  width: 105%;
+}
+
+/* Decorate the outline of the input when users click on it or had done type for it */
+.input-box input:focus, 
+.input-box input:valid,
+.notes textarea:focus {
+  border-color: #9b59b6;
+}
+
+/* Set up the layout of the receive option */
+.receive-option {
+  display: flex;
+}
+
+/* Add space before and after the choice */
+.choice {
+  margin: 0 10%;
+}
+
+/* Set the note width be full width */
+.notes {
+  width: 100%;
+}
+
+/* Set up the textarea's size */
+.notes textarea {
+  width: 100%;
+  height: 150px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Set up the layout of the button */
+.button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px 0;
+}
+
+/* Decorate the submit and reset button */
+.submit-btn input[type=submit],
+.reset-btn input[type=reset] {
+  padding: 10px 30px;
+  font-size: 16px;
+  border-radius: 5px;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* Change the background color of the submit button */
+.submit-btn input[type=submit] {
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  color: white;
+  border: 1px solid white;
+}
+
+/* Change the color of the outline of the reset button */
+.reset-btn input[type=reset] {
+  border: 2px solid;
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to right bottom, #6a5af9, #f62682);  
+}
+
+/* Add effect to two buttons when users hover on it */
+.submit-btn input[type=submit]:hover, .reset-btn input[type=reset]:hover {
+  padding: 16px 40px;
+  font-size: 18px;
+}

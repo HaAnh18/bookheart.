@@ -1,0 +1,538 @@
+/* 
+    RMIT University Vietnam
+    Course: COSC2430 Web Programming
+    Semester: 2023A
+    Assessment: Assignment 1
+    Author: Nguyen Tran Ha Anh
+    ID: s3938490
+    Acknowledgement:
+ */
+
+/* Some general css for thw whole body */
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  scroll-behavior: smooth;
+  transition: all .5s;
+  font-family: 'Quicksand', sans-serif;
+}
+
+/* Primary color for light mode */
+:root {
+  --primary-color : white;
+  --secondary-color: #212121;
+}
+
+/* Primary color for dark mode */
+.dark-theme {
+  --primary-color: #212121;
+  --secondary-color: white
+}
+
+
+/* -------------------------------------------- Header section code for desktop devices --------------------------------------------- */
+
+/* Css for the whole navigation bar */
+.navbar {
+  display: flex;
+  position: relative;
+  height: 90px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--primary-color);
+  z-index: 1000;
+}
+
+/* Css for the left section of the navigation bar */
+.left-section {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 1;
+  position: relative;
+}
+
+/* Hamburger icon for the mobile device version */
+.hamburger-icon {
+  display: none;
+}
+
+/* Two navigation links on the left navigation bar */
+.left-nav {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Css for the text of the navigation link */
+.left-nav a,
+.right-nav a {
+  margin: 0 18px;
+  color: #2F70AF;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+/* Set the two navigation links in the same line */
+.left-nav ul li {
+  display: inline-block;
+}
+
+/* Css for the Categories link which include the dropdown content */
+.category-nav {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+
+/* Css the dropdown bix of the Categories link */
+.dropdown {
+  display: none;
+}
+
+/* Css the dropbow content to seperate it into different line */
+.dropdown li {
+  display: block;
+  height: 30px;
+  margin: 10px 0;
+  display: flex;
+}
+
+/* Css the font size of the content in the dropdown box */
+.dropdown li a {
+  font-size: 16px;
+  width: fit-content;
+  /* text-transform: none; */
+}
+
+/* Css the middle section */
+.middle-section {
+  width: 320px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+/* Resize the bookstore's name */
+.logo {
+  color: #2F70AF;
+  font-size: 70px;
+  font-family: 'DM Serif Text', serif;
+}
+
+/* Css the right section of the navigation bar */
+.right-section {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+/* Css the align of the right navigation */
+.right-nav {
+  flex: 1;
+  justify-content: flex-start;
+}
+
+/* Resize the width of all icons in the navigation bar */
+.icon {
+  max-width: 60px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Resize the user icon in the navigation bar */
+.fa-user {
+  margin: 0 5px;
+  font-size: 20px;
+  color: #2F70AF;
+}
+
+/* Resize the darkmode icon */
+#icon {
+  margin-right: 10px;
+  margin-left: 10px;
+  font-size: 20px;
+  color: #2F70AF;
+  cursor: pointer;
+}
+
+/* Css the cart-icon including the number of books that user had added to their cart */
+.cart-icon {
+  position: relative;
+  margin-right: 30px;
+  transition: all 1s;
+  cursor: pointer;
+  color: #2F70AF;
+}
+
+/* Resize the shooping cart icon */
+.cart {
+  position: absolute;
+  z-index: 100;
+  font-size: 20px;
+}
+
+/* Css the book to make it display inside the icon */
+.book {
+  position: absolute;
+  height: 12px;
+  width: 10px;
+  background-color: #B9848B;
+  left: 7px;
+  top: -5px;
+  z-index: 0;
+  border-radius: 20%;
+}
+
+/* Display the number of the books that users had added to their cart */
+.purchase-amount {
+  position: absolute;
+  top: -10px;
+  left: 16px;
+  font-size: 11px;
+  padding: 1px 4px;
+  border-radius: 50%;
+  z-index: 101;
+  border-color: #2F70AF;
+  border-width: 1px;
+  border: solid;
+}
+
+/* Display the infomation of user's cart */
+.cart-info {
+  width: 300px;
+  height: 300px;
+  background-color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 35px;
+  right: 0;
+  border: 0.5px solid #B9848A;
+  pointer-events: none;
+  transform: all .5s ease;
+  display: none;
+}
+
+/* If user click to the shopping cart icon, it will add this class to show the cart information */
+.show {
+  display: block;
+}
+
+/* When user hover the icon, the book inside the cart will pop up */
+.cart-icon:hover .book {
+  margin-top: -5px;
+  transform: rotate(-10deg);
+}
+
+/* Css the book in user's cart */
+.selected-book {
+  display: flex;
+  margin-top: 16px;
+  padding-bottom: 10px;
+  border-bottom: solid 1px #B9848A;
+}
+
+/* Resize the book's image */
+.selected-book img {
+  width: 90px;
+}
+
+/* Css the div include the book's image */
+.selected-book-img {
+  width: 110px;
+  margin-left: 10px;
+}
+
+/* Resize the selected book's information div */
+.selected-book-info {
+  flex: 1;
+}
+
+/* Resize the book's name */
+.selected-book-name {
+  font-size: 18px;
+  text-transform: capitalize;
+  margin: 10px 0;
+}
+
+/* Css to make the price display in same line */
+.selected-book-price, .quantity {
+  display: inline-block;
+}
+
+/* Change the color of book's price */
+.selected-book-price {
+  color: #B9848A;
+}
+
+/* Display the subtotal of user's cart */
+.subtotal {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  font-style: bold;
+  border-bottom: solid 1px #B9848A;
+}
+
+/* /Css the total payment */
+.total {
+  flex: 1;
+  justify-content: flex-start;
+  margin-left: 20px;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+/* Css the total payment that user had to pay */
+.price {
+  flex: 1;
+  justify-content: flex-end;
+  display: flex;
+  margin-right: 20px;
+  font-weight: bold;
+  color: #B9848A;
+}
+
+/* Css the preview button of user's cart */
+.preview-button {
+  display: flex;
+  justify-content: space-around;
+  height: 80px;
+  align-items: center;
+}
+
+/* Css the text of the button view cart and checkout */
+.view-cart, .checkout {
+  padding: 14px 24px;
+  border: none;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+/* Change the color of the view cart button */
+.view-cart {
+  background-color: #2F70AF;
+  color: white;
+}
+
+/* Change the color of the checkout button */
+.checkout {
+  border: 1px solid #2F70AF;
+  color: #2F70AF;
+  background-color: var(--primary-color);
+}
+
+/* Make the underline if the website is in that page or user hover on it */
+.nav-list.active, .nav-list:hover {
+  padding: 5px 0;
+  border-bottom: 2px solid #8C9CD1;
+  width: fit-content;
+}
+
+/* When user hover to the Categories, the dropdown box will appear */
+.category-nav:hover .dropdown {
+  width: 200px;
+  background-color: var(--primary-color);
+  z-index: 40;
+  text-align: center;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 140%;
+  right: -10px;
+}
+
+/* when user hover the link in dropdown box, there will be the underline for that text */
+.dropdown li:hover a {
+  border-bottom: 2px solid #8C9CD1;
+}
+
+/* Css for the title of the whole website */
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  z-index: 30;
+  text-align: center;
+}
+
+/* Set the font family anf font size of the title for the whole website */
+.title h1 {
+  font-size: 60px;
+  font-family: 'DM Serif Text', serif;
+}
+
+/* Css the button of almost all button in the website */
+.btn {
+  margin-top: 30px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 30px;
+  font-family: 'Quicksand', sans-serif;
+  border: none;
+  cursor: pointer;
+  transition: all .5s;
+  z-index: 1000000;
+}
+
+/* Align the button in the center */
+.btn-align {
+    margin: 20px 0;
+    text-decoration: none;
+    transform: all .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* When user hover the button, the button will increase the padding */
+.btn:hover {
+  padding: 16px 40px;
+  border-radius: 40px;
+}
+
+/* Css the breadcrumb for the whole website */
+.breadcrumb {
+  background-color: var(--primary-color);
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 50px;
+}
+
+/* When the link in breadcrumb is hovered, there will be the underline for that link */
+.breadcrumb a:hover {
+  padding: 5px 0;
+  border-bottom: 2px solid #8C9CD1;
+}
+
+/* Resize the text in the breadcrumb */
+.breadcrumb a {
+  margin: 0 10px;
+  font-size: 20px;
+  color: #2F70AF;
+}
+
+.breadcrumb p {
+  color: var(--secondary-color);
+}
+
+/* -------------------------------------------- Footer for desktop devices --------------------------------------------- */
+/* Css for the footer section */
+footer {
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+  background-color: #001b30;
+}
+
+/* Css the bookstore's name and short introduction of the bookstore */
+.about-store {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  justify-content: space-evenly;
+  
+}
+
+/* Resize the bookstore's name */
+.about-store h2 {
+  font-size: 50px;
+  color: white;
+  font-family: serif;
+}
+
+/* Resize the social link of the bookstore */
+.social-media a {
+  text-decoration: none;
+  color: white;
+  font-size: 24px;
+  margin: 5px 5px;
+}
+
+/* Resize the sub text of the footer */
+.footer-col p {
+  font-size: 16px;
+  color: white;
+  
+}
+
+/* Display the text in column */
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+/* Resizw and change color of the deading in footer */
+.footer-heading{
+  font-size: 30px;
+  color: white;
+}
+
+/* Add space between each content */
+.footer-col ul li {
+  margin: 10px 0;
+}
+
+/* Change the color of the text */
+.footer-col ul li a{
+  color: white;
+}
+
+/* Resize the map */
+.footer-col ul li iframe {
+  max-width: 100%;
+}
+
+/* Css the copyright */
+.copyright {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-style: italic;
+}
+
+/* Wher=n user hover the link in footer, there will be the underline for that text */
+.footer-col ul li a:hover {
+  border-bottom: 1px white solid;
+}
+
+/* Back to top button */
+.back-to-top {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+  z-index: 100000;
+}
+
+/* Change the color of the arrow */
+.fa-arrow-up {
+  font-size: 20px;
+  color: #2F70AF;
+}
+
+/* When user hover the button */
+.back-to-top:hover {
+  padding: 10px 20px;
+}
+
+

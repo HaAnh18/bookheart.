@@ -1,0 +1,241 @@
+/* 
+    RMIT University Vietnam
+    Course: COSC2430 Web Programming
+    Semester: 2023A
+    Assessment: Assignment 1
+    Author: Nguyen Tran Ha Anh
+    ID: s3938490
+    Acknowledgement:
+ */
+
+/* Set up the background color for the body of this page */
+body {
+  background: -webkit-gradient(linear, left top, left bottom, from(#71b7e6), to(#9b59b6)) fixed;
+}
+
+/* -------------------------------------------- Book overview section code for desktop devices --------------------------------------------- */
+
+/* Set up the layout for the book overview section */
+#book-overview-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+/* Add the white bakcground for user to read it more clearly */
+.book-overview {
+  width: 90%;
+  height: 65vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  color: var(--secondary-color);
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+/* Set the layout for the images */
+.images {
+  flex: 1;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Set the position for the big image */
+.big-img {
+  display: flex;
+  justify-content: center;
+}
+
+/* Resize the big image of the book */
+.big-img img {
+  max-width: 240px;
+  margin-top: 20px;
+}
+
+/* Set up the layout for the samll images */
+.small-img {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Resize the small images of the book */
+.small-img img {
+  margin: 0 5px;
+  width: 10%;
+  opacity: 0.5;
+  border: 1px solid #2F70AF;
+}
+
+/* Set uo the overview content */
+.overview {
+  margin-top: 5px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Add the space after the book's name */
+.book-name {
+  margin-bottom: 24px;
+}
+
+/* Change the font sixe of the book's name */
+.book-name h3 {
+  font-size: 40px;
+}
+
+/* Change the font size of the bok's author */
+.book-name h5 {
+  font-size: 24px;
+}
+
+/* Add the space after the general information if the book */
+.supplier-info,
+.punlisher-info,
+.author-info,
+.return,
+.quantity {
+  margin: 10px 0;
+}
+
+/* Change the font size of all spans in the overview content */
+span {
+  font-size: 16px;
+}
+
+/* Make the name be bold */
+.name {
+  font-weight: bold;
+}
+
+/* Change the color of the supplier's name */
+.supplier {
+  color: #71b7e6;
+}
+
+/* Change the color of the rating star */
+.rate {
+  color: rgb(230, 198, 39);
+  margin: 10px 0;
+}
+
+/* Change the font size and the color of the book's price */
+.detailed-price {
+  font-size: 20px;
+  margin: 10px 0;
+  color: red;
+}
+
+/* change the font size of the quantity of the book */
+.user-quantity {
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(92, 91, 91);
+}
+
+/* Add space before and after the number and change the font size the text */
+.number {
+  margin-left: 20px;
+  font-size: 16px;
+}
+
+/* Set the position for two button */
+.button {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Design the button */
+.button button {
+  margin-right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  font-family: sans-serif;
+  padding: 16px 50px;
+  width: 300px;
+  border-radius: 10px;
+}
+
+/* Change the background color and color of the buy now button */
+.buy-now {
+  background-color: red;
+  color: var(--primary-color);
+  border: none;
+}
+
+/* Change the background color and color of the Add to cart button */
+.add-to-cart {
+  background-color: var(--primary-color);
+  color: red;
+  border: 2px solid red;
+}
+
+/* Change the background and color when button is hovered */
+.add-to-cart:hover {
+  background-color: red;
+  color: var(--primary-color);
+}
+
+/* Change the background and color when button is hovered */
+.buy-now:hover {
+  background-color: var(--primary-color);
+  color: red;
+  border: 2px solid red;
+}
+
+/* -------------------------------------------- Book's description section code for desktop devices --------------------------------------------- */
+
+/* Set the layout for the book's description section */
+#description-section {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+/* Change the background color to white */
+.description {
+  width: 90%;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  color: var(--secondary-color);
+}
+
+/* Change the font size of the heading */
+.heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  height: 90px;
+}
+
+/* Set the layout of the content */
+.content {
+  margin: 0 30px;
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Add space before and after the text and change the fint size of text */
+.content p {
+  margin: 10px 0;
+  font-size: 16px;
+}

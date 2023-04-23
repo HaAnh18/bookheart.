@@ -1,0 +1,402 @@
+<!-- 
+    RMIT University Vietnam
+    Course: COSC2430 Web Programming
+    Semester: 2023A
+    Assessment: Assignment 1
+    Author: Nguyen Tran Ha Anh
+    ID: s3938490
+    Acknowledgement:
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Drunken Botanist</title>
+  <link rel="icon" href="images/icon.png" type="image/png"/>
+  <link rel="stylesheet" href="styles/general.css">
+  <link rel="stylesheet" href="styles/book-description.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">   
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Fasthand&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+</head>
+<body id="top">
+  
+  <!-- Sidebar navigation for mobile devices -->
+  <div class="sidebar close">
+
+    <!-- Navigation links for sidebar menu -->
+    <ul class="nav-links">
+      <li class="active-link">
+        <a href="index.html">
+          <span class="link-name">Home</span>
+        </a>
+      </li>
+
+      <li>
+        <div class="category-link">
+          <a href="#fiction-category-section">
+            <span class="link-name">Categories</span>
+          </a>
+          <i class="fa-solid fa-chevron-down arrow"></i>
+        </div>
+
+        <!-- Sub menu for categories -->
+        <ul class="sub-menu">
+          <li><a class="link-name" href="fiction-category.html">Fiction</a></li>
+          <li><a href="non-fiction-category.html">Non-Fiction</a></li>
+          <li><a href="404-page.html">Children's Books</a></li>
+          <li><a href="404-page.html">Reference Books</a></li>
+          <li><a href="404-page.html">Textbooks</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="index.html#events-section">
+          <span class="link-name">Events</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="contact-page.html">
+          <span class="link-name">Contact</span>
+        </a>
+      </li>
+    </ul>
+</div>
+
+  <!-- Navigation bar for desktop devices -->
+  <header>
+
+      <!-- Navigation links for desktop navigation menu -->
+      <div class="navbar">
+
+          <!-- Left section navigation bar including hamburger icon and Home, Categories link -->
+          <div class="left-section">
+
+              <!-- Hamburger icon for mobile devices -->
+              <div class="hamburger-icon">
+                  <i class="fa-solid fa-bars"></i>
+              </div>
+
+              <!-- Home and Categories link in desktop navigation bar -->
+              <div class="left-nav">
+                  <ul>
+                      <li>
+                          <a class="nav-list" href="index.html">Home</a>
+                      </li>
+
+                      <li class="category-nav">
+                          <a class="nav-list" href="#fiction-category-section">Categories</a>
+
+                          <!-- Submenu for Categories -->
+                          <ul class="dropdown">
+                              <li><a href="fiction-category.html">Fiction</a></li>
+                              <li><a href="non-fiction-category.html">Non-Fiction</a></li>
+                              <li><a href="404-page.html">Children's Books</a></li>
+                              <li><a href="404-page.html">Reference Books</a></li>
+                              <li><a href="404-page.html">Textbooks</a></li>
+                          </ul>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+
+          <!-- Bookstore's logo -->
+          <div class="middle-section">
+              <a class="logo" href="index.html">bookheart.</a>
+          </div>
+
+          <!-- Right section navigation bar including Events, Contact link and some icons -->
+          <div class="right-section">
+              <div class="right-nav">
+                  <a class="nav-list" href="#events-section">Events</a>
+                  <a class="nav-list" href="contact-page.html">Contact</a>
+              </div>
+
+              <!-- Including the shopping cart icon, user icon and darkmode button -->
+              <div class="icon">
+
+                  <!-- Show the number of book in user's cart -->
+                  <div class="cart-icon" onclick="dropCart()">
+                      <span class="cart">
+                          <i class="fa-solid fa-cart-shopping"></i>
+                      </span>
+                      <span class="book"></span>
+                      <span class="purchase-amount">1</span>
+                      
+                      <!-- Detailed user's cart information -->
+                      <div id="user-cart" class="cart-info">
+                          <div class="selected-book">
+                              <div class="selected-book-img">
+                                  <img src="images/fiction-category/book1/book-in-cart.jpeg" alt="Selected Book">
+                              </div>
+                              
+                              <div class="slected-book-info">
+                                  <p class="selected-book-name">It ends with us</p>
+                                  <p class="selected-book-price">$9.95</p>
+                                  <p class="quantity">x 1</p>
+                              </div>
+                          </div>
+
+                          <div class="subtotal">
+                              <p class="total">Subtotal:</p>
+                              <p class="price">$9.95</p>
+                          </div>
+
+                          <div class="preview-button">
+                              <button class="view-cart">View cart</button>
+                              <button class="checkout">Checkout</button>
+                          </div>
+                      </div>
+
+                  </div>
+
+                  <!-- User icon -->
+                  <i class="fa-solid fa-user"></i>
+
+                  <!-- Darkmode button -->
+                  <i class="fa-solid fa-moon" id="icon"></i>
+              </div>
+          </div>
+      </div>
+
+  </header>
+
+  <main>
+    <div class="breadcrumb book-description">
+      <a href="index.html">Home</a>
+      <p>/</p>
+      <a href="non-fiction-category.html">Non-Fiction</a>
+      <p>/</p>
+      <a href="non-fiction-category.html#sub-category2-section">Cooking and Food</a>
+      <p>/</p>
+      <a href="the-drunken-botanist.html">The Drunken Botanist</a>
+    </div>
+  
+    <section id="book-overview-section">
+      <div class="book-overview">
+        <div class="images">
+          <div class="big-img">
+            <img src="images/non-fiction/cooking-and-food/the-drunken-botanist/pic1.jpeg" alt="The Drunken Botanist">
+          </div>
+  
+          <div class="small-img">
+            <img src="images/non-fiction/cooking-and-food/the-drunken-botanist/pic2.png" alt="Sample page">
+            <img src="images/non-fiction/cooking-and-food/the-drunken-botanist/pic3.png" alt="Sample page">
+            <img src="images/non-fiction/cooking-and-food/the-drunken-botanist/pic4.png" alt="Sample page">
+          </div>
+        </div>
+  
+        <div class="overview">
+          <div class="book-name">
+            <h3>The Drunken Botanist</h3>
+            <h5>By AMY STEWART</h5>
+          </div>
+  
+           <div class="supplier-info">
+            <span>Supplier: </span>
+            <span class="supplier name">Amazon</span>
+          </div>
+  
+          <div class="publisher-info">
+            <span>Publisher: </span>
+            <span class="publisher name">Algonquin Books; 1st edition</span>
+          </div>
+  
+          <div class="author-info">
+            <span>Author: </span>
+            <span class="author name">Amy Stewart</span>
+          </div>
+    
+  
+          <div class="rate">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+  
+            <span>(45 votes)</span>
+          </div>
+  
+          <div class="detailed-price">
+            <h3>$16.05</h3>
+          </div>
+  
+          <div class="return">
+            <span>Return-exchange policy: </span>
+            <span class="policy">Return and exchange product in <strong>30 days</strong></span>
+          </div>
+          
+          <div class="quantity">
+            <span class="user-quantity">Quantity:</span>
+            <span class="number">1</span>
+          </div>
+  
+          <div class="button">
+            <button class="add-to-cart">Add to cart</button>
+            <button class="buy-now">Buy now</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <section id="description-section">
+      <div class="description">
+        <div class="heading">
+          <h2>Book Description</h2>
+        </div>
+  
+        <div class="content">
+          <p>
+            <strong>
+              The Essential, New York Times–Bestselling Guide to Botany and Booze
+            </strong>
+          </p>
+
+          <p>
+            <strong>
+              “A book that makes familiar drinks seem new again . . . Through this horticultural lens, a mixed drink becomes a cornucopia of plants.”—NPR's Morning Edition
+            </strong>
+          </p>
+
+          <p>
+            <strong>
+              “Amy Stewart has a way of making gardening seem exciting, even a little dangerous.” —The New York Times
+            </strong>
+          </p>
+
+          <p>
+            Sake began with a grain of rice. Scotch emerged from barley, tequila from agave, rum from sugarcane, bourbon from corn. Thirsty yet?  
+            In The Drunken Botanist, Amy Stewart explores the dizzying array of herbs, flowers, trees, fruits, and fungi that humans have, through ingenuity, inspiration, and sheer desperation, contrived to transform into alcohol over the centuries.
+          </p>
+
+          <p>
+            Of all the extraordinary and obscure plants that have been fermented and distilled, 
+            a few are dangerous, some are downright bizarre, and one is as ancient as dinosaurs—but each represents a unique cultural contribution to our global drinking traditions and our history.
+          </p>
+
+          <p>
+            This fascinating concoction of biology, chemistry, history, etymology, and mixology—with more than fifty drink recipes and growing tips for gardeners—will make you the most popular guest at any cocktail party.
+          </p>
+          
+        </div>
+      </div>
+    </section>
+  
+    <!-- Footer including the bookstore's introduction, all the navigation links -->
+    <footer>
+      <div class="about-store">
+          <a href="index.html">
+              <h2>bookheart.</h2>
+          </a>
+
+          <!-- Introduction about the bookstore -->
+          <p>
+              Welcome to our bookstore! We are dedicated to providing you with a vast selection of books to satisfy all of your reading interests. 
+              Whether you're looking for a best-selling novel, a classic work of literature, a fascinating biography, or an engaging children's book, we have something for everyone.            
+          </p>
+
+          <div class="social-media">
+              <a href="404-page.html">
+                  <i class="fa-brands fa-facebook"></i>
+                </a>
+      
+                <a href="404-page.html">
+                  <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+      
+                <a href="404-page.html">
+                  <i class="fa-brands fa-instagram"></i>
+                </a>
+          </div>
+      </div>
+
+      <div class="footer-col">
+
+          <!-- About us section -->
+          <h3 class="footer-heading">About us</h3>
+          <ul>
+              <li><a href="index.html"> Home</a></li>
+              <li><a href="404-page.html"> Privacy Policy</a></li>
+              <li><a href="404-page.html"> Terms</a></li>
+          </ul>
+      </div>
+
+      <div class="footer-col">
+
+          <!-- Categories in bookstore -->
+          <h3 class="footer-heading">Categories</h3>
+
+          <ul>
+              <li>
+                  <a href="fiction-category.html">Fiction</a>
+              </li>
+
+              <li>
+                  <a href="non-fiction-category.html">Non-Fiction</a>
+              </li>
+              
+              <li>
+                  <a href="404-page.html">Children's Books</a>
+              </li>
+
+              <li>
+                  <a href="404-page.html">Reference Books</a>
+              </li>
+
+              <li>
+                  <a href="404-page.html">Textbooks</a>
+              </li>
+          </ul>
+      </div>
+
+      <div class="footer-col">
+
+          <!-- Contact information -->
+          <h3 class="footer-heading">Get In Touch</h3>
+          <ul>
+              <li>
+                  <a href="contact-page.html">Contact Us</a>
+              </li>
+              <li>
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.0717236673645!2d106.69357801478574!3d10.728951492353815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752fbea5fe3db1%3A0xfae94aca5709003f!2sRMIT%20University%20Vietnam%20-%20Saigon%20South%20campus!5e0!3m2!1sen!2s!4v1680774148619!5m2!1sen!2s" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </li>
+              
+          </ul>
+      </div>
+
+      <!-- Copyright -->
+      <div class="copyright">
+          <p>© Copyright 2023 by Ha Anh</p>
+      </div>
+  </footer>
+  <!-- Back to top button to bring customer back to the top of page -->
+  <div class="back-to-top-button">
+    <a href="#top">
+        <button class="btn back-to-top">
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
+    </a>
+  </div>
+</main>
+
+
+ 
+
+ <script src="main.js"></script>
+</body>
+</html>

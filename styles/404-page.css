@@ -1,0 +1,53 @@
+/* 
+    RMIT University Vietnam
+    Course: COSC2430 Web Programming
+    Semester: 2023A
+    Assessment: Assignment 1
+    Author: Nguyen Tran Ha Anh
+    ID: s3938490
+    Acknowledgement:
+ */
+
+/* Set the background image for the 404 page */
+.error-content {
+  background: url(../images/404-bg.jpg) no-repeat center center fixed; 
+  background-size: cover;
+  z-index: 10;
+  height: 100vh;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  text-align: center;
+}
+
+/* Change the font size of the title */
+.title-error {
+  font-size: 120px;
+}
+
+/* Change the message into uppercase */
+.error-content h3 {
+  text-transform: uppercase;
+  font-size: 40px;
+}
+
+/* Set up the position of the content */
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Change the font size of the content */
+.content p {
+  font-size: 24px;
+}
+
+/* Css the return button */
+.return {
+  font-family: 'Oleo Script', cursive;
+}

@@ -1,0 +1,701 @@
+/* 
+    RMIT University Vietnam
+    Course: COSC2430 Web Programming
+    Semester: 2023A
+    Assessment: Assignment 1
+    Author: Nguyen Tran Ha Anh
+    ID: s3938490
+    Acknowledgement:
+ */
+ 
+/* Homepage and Book Category Page Css */
+
+/* -------------------------------------------- Banner section for homepage --------------------------------------------- */
+
+/* Set the layout and background image for the banner */
+#banner-section1 {
+  display: flex;
+  background: linear-gradient(rgba(250,250,250, 0),
+  rgba(250,250,250, 0)), url(../images/banner-bg.png);
+  justify-content: center;
+  width: 100%;
+  height: 90vh;
+  align-items: center;
+}
+
+/* Add the blur background for user could read the content clearly */
+.banner {
+  width: 90%;
+  height: 70vh;
+  background-color: rgba(255, 255, 255, .125);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Set the layout for the banner content */
+.banner-description {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 65vh;
+}
+
+/* Change the font and resize the text in banner */
+.homepage-banner-content {
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 40px;
+  line-height: 70px;
+  z-index: 11;
+  color: #2F70AF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Set the font family for the heading in banner */
+.homepage-banner-content h1 {
+  font-family: 'DM Serif Text', serif;
+}
+
+/* Set the font family for the sub heading in banner */
+.homepage-banner-content h3 {
+  font-family: 'Fasthand', cursive;
+}
+
+/* Change the color of the explore button */
+.explore {
+  color: #2F70AF;
+  background-color: var(--primary-color);
+}
+
+/* Set the size for the book image */
+.book-bg img {
+  max-width: 400px;
+}
+
+/* To make the book image layer in front */
+.banner-bg {
+  z-index: 11;
+}
+
+/* Setup the position for bubbles */
+.bubbles {
+  position: absolute;
+  display: flex;
+  z-index: 0;
+  top: 0;
+}
+
+/* Decorate each bubble */
+.bubbles span {
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  margin: 0 4px;
+  box-shadow: 0 0 0 4px #C0C0C044,
+  0 0 5px white,
+  0 0 6px white;
+  animation: animate 15s linear infinite;
+  animation-duration: calc(120s/ var(--i));
+  z-index: 1;
+}
+
+/* Animation for bubbles to fall down from small size to big size */
+@keyframes animate {
+  0% {
+    transform: translateY(0vh) scale(0.2);
+  }
+
+  100% {
+    transform: translateY(65vh) scale(1);
+  }
+}
+
+/* -------------------------------------------- Banner section for category page --------------------------------------------- */
+/* Set up the layout for the banner section */
+#banner-section2 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  overflow: hidden;
+  background-color: var(--primary-color);
+}
+
+/* Set the width for the introduction video */
+.back-video {
+  position: absolute;
+  width: 100%;
+}
+
+/* Resize the introduction video */
+video {
+  width: 100%;
+}
+
+/* Add the blur background for user to read the content clearly */
+.banner-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, .8);
+  z-index: 40;
+  width: 70%;
+  border-radius: 10px;
+}
+
+/* Change the color of the heading in banner */
+.banner-name {
+  color: #2F70AF;
+}
+
+/* -------------------------------------------- Category section for homepage --------------------------------------------- */
+/* Set up the layout for category section */
+#fiction-category, #non-fiction-category {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Change the background color for the Fiction category section */
+#fiction-category-section {
+  background-color: var(--primary-color);
+}
+
+/* Change the background color for the Non-Fiction category section */
+#non-fiction-category-section {
+    background-image: linear-gradient(to bottom,#8A7AB4,#658DC5,#D3B9D0, white);
+}
+
+/* Set the position for the cloud background image */
+.bg1 {
+  position: absolute;
+  top: -18%;
+  right: 0%;
+  max-width: 70%;
+  opacity: 0.5;
+}
+
+/* Set the position for the cloud background image */
+.bg2 {
+  position: absolute;
+  top: 35%;
+  left: -10%;
+  bottom: 40px;
+  max-width: 50%;
+  opacity: 0.5;
+}
+
+/* Set the position for the cloud background image */
+.bg3 {
+  position: absolute;
+  bottom: -20px;
+  right: 0;
+  opacity: 0.3;
+  width: 40%;
+}
+
+/* Set the position for the cloud background image */
+.bg4 {
+  position: absolute;
+  max-width: 80%;
+  left: -10px;
+}
+
+/* Set the position for the cloud background image */
+.bg5 {
+  position: absolute;
+  max-width: 40%;
+  bottom: 0;
+  right: 0;
+}
+
+/* Set the layout for the category section */
+.fiction, .non-fiction {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: relative;
+}
+
+/* Change the color of the Fiction category and first sub category */
+.fiction-category h1, .sub1 h1 {
+  color: #e0a2d9;
+}
+
+/* Change the color of the Non-Fiction and the second sub category */
+.non-fiction-category h1, .sub2 h1 {
+  color: var(--primary-color);
+}
+
+/* Set the background color for the automated slider */
+@mixin white-gradient {
+	background: linear-gradient(to right, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+}
+
+/* the silder will be used in category section in homepage and two sub category section in category page */
+/* Decorate the automated slider */
+.wrapper {
+	box-shadow: 0 3px 10px rgb(0 0 0 / 0.3);
+	height: 500px;
+	margin: 0 auto;
+	overflow: hidden;
+	position: relative;
+	width: 100%; 
+  display: flex;
+  align-items: center;
+}
+
+/*  */
+.wrapper::before, 
+.wrapper::after {
+  @include white-gradient;
+  content: "";
+  height: 100px;
+  position: absolute;
+  width: 200px;
+  z-index: 2;
+}
+
+.wrapper::after {
+  right: 0;
+  top: 0;
+  transform: rotateZ(180deg);
+}
+
+.wrapper::before {
+  left: 0;
+  top: 0;
+}
+
+/* Addd the scrolling effect for the slider */
+.slider-container {
+  animation: scrolling 40s linear infinite;
+  display: flex;
+  width: calc(250px * 14);
+  justify-content: space-evenly;
+}
+
+/* Set up the scrolling effect */
+@keyframes scrolling {
+	0% { transform: translateX(0); }
+	100% { transform: translateX(calc(-250px * 7))}
+}
+
+/* When user hover the slider, the slider will be paused */
+.slider-container:hover {
+  animation-play-state: paused;
+}
+
+/* Decorate the book's card information */
+.card-info {
+  height: 400px;
+  object-fit: cover;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: 14px;
+  width: 250px;
+  font-family: 'Quicksand', sans-serif;
+}
+
+/* Set size for the images in slider */
+.card-img img {
+  width: 200px;
+  height: 280px;
+}
+
+/* Add space for the book's information */
+.book-info {
+  margin: 10px 0;
+}
+
+/* Change the color and font weight for the book's price and author */
+.book-price {
+  color: #B12705;
+  font-size: 18px;
+}
+
+.book-author {
+  color: #2F70AF;
+  font-weight: bold;
+}
+
+/* Change the color and font size of the books title */
+.book-title {
+  margin: 10px 0;
+  font-size: 21px;
+  color:#2F70AF;
+}
+
+/* Change the backgound color of the see all button */
+.see-all, .more-info {
+  background: linear-gradient(#7899CE, #817FB8);
+  color: var(--primary-color);
+  z-index: 10000;
+}
+
+/* -------------------------------------------- Sub category for the category page --------------------------------------------- */
+
+/* Set up the layout for the sub category section */
+#sub-category1-section, #sub-category2-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Change the backgground color of the first sub category */
+#sub-category1-section {
+  background-color: var(--primary-color);
+}
+
+/* Change the background color of the second sub category */
+#sub-category2-section {
+  background-image: linear-gradient(to bottom,#8A7AB4,#658DC5,#D3B9D0, white);
+}
+
+/* Set up the layout for the sub category section */
+.sub-category1, .sub-category2 {
+  height: 95vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+/* Change the height of the breadcrumb in category page */
+.category-page {
+  height: 80px;
+}
+
+/* -------------------------------------------- Discover more section --------------------------------------------- */
+/* This design will be used t=in homepage and two category pages */
+
+/* Set up the layout for the discover more section */
+#discover-more-section {
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+  position: relative;
+}
+
+/* Set the position for the cloud background image */
+.bg6 {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  opacity: 0.4;
+  max-width: 30%;
+}
+
+/* Set the position for the cloud background image */
+.bg7 {
+  position: absolute;
+  bottom: 0;
+  opacity: 0.4;
+  right: 5%;
+  max-width: 40%;
+}
+
+/* Change the color of the title in this discover section */
+.discovery h1 {
+  color: #658DC5;
+}
+
+/* Set the layout fo other catergories */
+.category-list {
+  height: 50vh;
+  width: 70%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Design each category and sub category */
+.category1, 
+.category2, 
+.category3,
+.sub-category3,
+.sub-category4,
+.sub-category5,
+.sub-category6,
+.sub-category7,
+.sub-category8 {
+  width: 200px;
+  height: 200px;
+  z-index: 12;
+  border-radius: 50%;
+  background-size: contain;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-position: center;
+  margin: 10px 10px;
+  transition: background 5s;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* Set the backgorund image for each category */
+.category1 {
+  background: linear-gradient(rgba(250,250,250, 0.3),
+  rgba(250,250,250, 0.6)), url(../images/children-book.jpg);
+  background-position: center;
+}
+
+/* Set the backgorund image for each category */
+.category2 {
+  background: linear-gradient(rgba(250,250,250, 0.3),
+  rgba(250,250,250, 0.6)), url(../images/reference-book.jpg);
+  background-position: center;
+}
+
+/* Set the backgorund image for each category */
+.category3 {
+  background: linear-gradient(rgba(250,250,250, 0.3),
+  rgba(250,250,250, 0.6)), url(../images/textbook.jpg);
+  background-position: center;
+}
+
+/* Set the backgorund image for each sub category */
+.sub-category3 {
+  background: linear-gradient(rgba(250,250,250, 0.3),
+  rgba(250,250,250, 0.6)), url(../images/fiction-category/literature-fiction.jpg);
+  background-position: center;
+}
+
+/* Set the backgorund image for each sub category */
+.sub-category4 {
+  background: linear-gradient(rgba(250,250,250, 0.3),
+  rgba(250,250,250, 0.6)), url(../images/fiction-category/science-fiction.jpeg);
+  background-position: center;
+}
+
+/* Set the backgorund image for each sub category */
+.sub-category5 {
+  background: linear-gradient(rgba(250,250,250, 0.3),
+  rgba(250,250,250, 0.6)), url(../images/fiction-category/mystery.jpeg);
+  background-position: center;
+}
+
+/* Set the backgorund image for each sub category */
+.sub-category6 {
+  background: linear-gradient(rgba(250,250,250, 0.3),
+  rgba(250,250,250, 0.6)), url(../images/non-fiction/travel.jpg);
+  background-position: center;
+}
+
+/* Set the backgorund image for each sub category */
+.sub-category7 {
+  background: linear-gradient(rgba(250,250,250, 0.3),
+  rgba(250,250,250, 0.6)), url(../images/non-fiction/history.jpg);
+  background-position: center;
+}
+
+/* Set the backgorund image for each sub category */
+.sub-category8 {
+  background: linear-gradient(rgba(250,250,250, 0.3),
+  rgba(250,250,250, 0.6)), url(../images/non-fiction/self-help.jpg);
+  background-position: center;
+}
+
+/* Design the transition when user hover on each category */
+.category1:hover {
+  background: linear-gradient(rgba(250,250,250, 0),
+  rgba(250,250,250, 0)), url(../images/children-book.jpg);
+}
+
+/* Design the transition when user hover on each category */
+.category2:hover {
+  background: linear-gradient(rgba(250,250,250, 0),
+  rgba(250,250,250, 0)), url(../images/reference-book.jpg);
+}
+
+/* Design the transition when user hover on each category */
+.category3:hover {
+  background: linear-gradient(rgba(250,250,250, 0),
+  rgba(250,250,250, 0)), url(../images/textbook.jpg);
+}
+
+/* Design the transition when user hover on each sub category */
+.sub-category3:hover {
+  background: linear-gradient(rgba(250,250,250, 0),
+  rgba(250,250,250, 0)), url(../images/fiction-category/literature-fiction.jpg);
+}
+
+/* Design the transition when user hover on each sub category */
+.sub-category4:hover {
+  background: linear-gradient(rgba(250,250,250, 0),
+  rgba(250,250,250, 0)), url(../images/fiction-category/science-fiction.jpeg);
+}
+
+/* Design the transition when user hover on each sub category */
+.sub-category5:hover {
+  background: linear-gradient(rgba(250,250,250, 0),
+  rgba(250,250,250, 0)), url(../images/fiction-category/mystery.jpeg);
+}
+
+/* Design the transition when user hover on each sub category */
+.sub-category6:hover {
+  background: linear-gradient(rgba(250,250,250, 0),
+  rgba(250,250,250, 0)), url(../images/non-fiction/travel.jpg);
+}
+
+/* Design the transition when user hover on each sub category */
+.sub-category7:hover {
+  background: linear-gradient(rgba(250,250,250, 0),
+  rgba(250,250,250, 0)), url(../images/non-fiction/history.jpg);
+}
+
+/* Design the transition when user hover on each sub category */
+.sub-category8:hover {
+  background: linear-gradient(rgba(250,250,250, 0),
+  rgba(250,250,250, 0)), url(../images/non-fiction/self-help.jpg);
+}
+
+/* Change the size of category */
+.category-name a {
+  font-size: 30px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* -------------------------------------------- Events section --------------------------------------------- */
+
+/* Set up the layout and background for the events section */
+#events-section {
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(#81A6D5, #9f81d0);
+}
+
+/* Change the color of the title of this section */
+.events {
+  color: #f9d81c;
+}
+
+/* Change the color and size of the content */
+.event-content {
+  color: var(--primary-color);
+  font-size: 24px;
+  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+}
+
+/* Change the background color of the purchase button */
+.purchase {
+  z-index: 1000;
+  background-color: #f9d81c;
+}
+
+/* Change the color of the text in purchase button */
+.purchase a {
+  color: black;
+}
+
+/* -------------------------------------------- Contact us section --------------------------------------------- */
+
+/* Set up the layout for the contact section */
+#contact-section {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  position: relative;
+  background-color: var(--primary-color);
+  color: #2F70AF;
+  
+}
+
+/* Set the position for the cloud banckground image */
+.bg8 {
+  position: absolute;
+  max-width: 40%;
+  left: 5%;
+}
+
+/* Set the position for the cloud banckground image */
+.bg9 {
+  position: absolute;
+  max-width: 40%;
+  bottom: 10px;
+  right: 0;
+  opacity: 0.3;
+}
+
+/* Set up the layout for the content in contact section */
+.contact-content {
+  display: flex;
+  justify-content: space-around;
+  height: 30vh;
+  z-index: 20;
+  margin: 0 10px;
+}
+
+/* Set the width for the register email */
+.register-email {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: calc(100%/3);
+}
+
+/* Chane the size of the heading in this part */
+.register-email h3 {
+  font-size: 30px;
+}
+
+/* Design the email input */
+.register-email input {
+  max-width: 300px;
+  height: 40px;
+  border-radius: 10px;
+  padding-left: 10px;
+  border: 1px solid #2F70AF;
+}
+
+/* Change the size of the placeholder in the input */
+.register-email input::placeholder {
+  font-size: 14px;
+  color: #2F70AF;
+}
+
+/* Set up the layout for the contact infor mation part */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: calc(100%/3);
+}
+
+/* Set the width for the introductuon video in homepage */
+.video {
+  max-width: 400px;
+  overflow: hidden;
+  width: calc(100%/3);
+}

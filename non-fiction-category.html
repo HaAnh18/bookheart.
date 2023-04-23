@@ -1,0 +1,903 @@
+<!-- 
+    RMIT University Vietnam
+    Course: COSC2430 Web Programming
+    Semester: 2023A
+    Assessment: Assignment 1
+    Author: Nguyen Tran Ha Anh
+    ID: s3938490
+    Acknowledgement:
+    https://codepen.io/nanova_9/pen/ExdYvpj
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Non-Fiction</title>
+  <link rel="icon" href="images/icon.png" type="image/png"/>
+  <link rel="stylesheet" href="styles/general.css">  
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="styles/responsive.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">   
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Fasthand&display=swap" rel="stylesheet"> 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+</head>
+<body id="top">
+    
+    <!-- Sidebar navigation for mobile devices -->
+    <div class="sidebar close">
+
+        <!-- Navigation links for sidebar menu -->
+        <ul class="nav-links">
+          <li class="active-link">
+            <a href="index.html">
+              <span class="link-name">Home</span>
+            </a>
+          </li>
+    
+          <li>
+            <div>
+              <a href="#fiction-category-section">
+                <span class="link-name">Categories</span>
+              </a>
+              <i class="fa-solid fa-chevron-down arrow"></i>
+            </div>
+
+            <!-- Sub menu for categories -->
+            <ul class="sub-menu">
+              <li><a class="link-name" href="fiction-category.html">Fiction</a></li>
+              <li><a href="non-fiction-category.html">Non-Fiction</a></li>
+              <li><a href="404-page.html">Children's Books</a></li>
+              <li><a href="404-page.html">Reference Books</a></li>
+              <li><a href="404-page.html">Textbooks</a></li>
+            </ul>
+          </li>
+    
+          <li>
+            <a href="index.html#events-section">
+              <span class="link-name">Events</span>
+            </a>
+          </li>
+    
+          <li>
+            <a href="contact-page.html">
+              <span class="link-name">Contact</span>
+            </a>
+          </li>
+        </ul>
+    </div>
+
+    <!-- Navigation bar for desktop devices -->
+    <header>
+
+        <!-- Navigation links for desktop navigation menu -->
+        <div class="navbar">
+
+            <!-- Left section navigation bar including hamburger icon and Home, Categories link -->
+            <div class="left-section">
+
+                <!-- Hamburger icon for mobile devices -->
+                <div class="hamburger-icon">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+
+                <!-- Home and Categories link in desktop navigation bar -->
+                <div class="left-nav">
+                    <ul>
+                        <li>
+                            <a class="nav-list" href="index.html">Home</a>
+                        </li>
+
+                        <li class="category-nav">
+                            <a class="nav-list" href="#fiction-category-section">Categories</a>
+
+                            <!-- Submenu for Categories -->
+                            <ul class="dropdown">
+                                <li><a href="fiction-category.html">Fiction</a></li>
+                                <li><a href="non-fiction-category.html">Non-Fiction</a></li>
+                                <li><a href="404-page.html">Children's Books</a></li>
+                                <li><a href="404-page.html">Reference Books</a></li>
+                                <li><a href="404-page.html">Textbooks</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bookstore's logo -->
+            <div class="middle-section">
+                <a class="logo" href="index.html">bookheart.</a>
+            </div>
+
+            <!-- Right section navigation bar including Events, Contact link and some icons -->
+            <div class="right-section">
+                <div class="right-nav">
+                    <a class="nav-list" href="#events-section">Events</a>
+                    <a class="nav-list" href="contact-page.html">Contact</a>
+                </div>
+
+                <!-- Including the shopping cart icon, user icon and darkmode button -->
+                <div class="icon">
+
+                    <!-- Show the number of book in user's cart -->
+                    <div class="cart-icon" onclick="dropCart()">
+                        <span class="cart">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </span>
+                        <span class="book"></span>
+                        <span class="purchase-amount">1</span>
+                        
+                        <!-- Detailed user's cart information -->
+                        <div id="user-cart" class="cart-info">
+                            <div class="selected-book">
+                                <div class="selected-book-img">
+                                    <img src="images/fiction-category/book1/book-in-cart.jpeg" alt="Selected Book">
+                                </div>
+                                
+                                <div class="slected-book-info">
+                                    <p class="selected-book-name">It ends with us</p>
+                                    <p class="selected-book-price">$9.95</p>
+                                    <p class="quantity">x 1</p>
+                                </div>
+                            </div>
+
+                            <div class="subtotal">
+                                <p class="total">Subtotal:</p>
+                                <p class="price">$9.95</p>
+                            </div>
+
+                            <div class="preview-button">
+                                <button class="view-cart">View cart</button>
+                                <button class="checkout">Checkout</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- User icon -->
+                    <i class="fa-solid fa-user"></i>
+
+                    <!-- Darkmode button -->
+                    <i class="fa-solid fa-moon" id="icon"></i>
+                </div>
+            </div>
+        </div>
+    
+    </header>
+
+
+   <!-- Including banner section, two categories section and footer --> 
+   <main>
+
+		<!-- Banner for the Non-Fiction category page of the bookstore's website -->
+		<section id="banner-section2">
+
+			<!-- Introduction video about the Non-Fiction category -->
+			<div class="back-video">
+        <video autoplay="autoplay" muted loop>
+          <source src="video/non-fiction-banner.mp4" type="video/mp4">
+          Your browser does not support the video tag
+        </video>
+			</div>
+
+			<!-- Content of the banner -->
+      <div class="banner-content">
+        <div class="title banner-name">
+          <h1>Non-Fiction</h1>
+        </div>
+
+				<!-- Button which navigate user to the next section of the page -->
+        <div class="btn-align">
+          <a href="#sub-category1-section">
+            <button class="btn explore">
+              Explore Now
+						</button>
+          </a>
+        </div>
+      </div>
+    </section>
+  
+		<!-- Breadcrumb -->
+		<div class="breadcrumb category-page">
+			<a href="index.html">Home</a>
+			<p>/</p>
+			<a href="non-fiction-category.html">Non-Fiction</a>
+		</div>
+
+		<!-- Arts and Photography category section -->
+    <section id="sub-category1-section">
+			<div class="sub-category1">
+
+				<!-- Cloud background images -->
+				<div class="bg">
+					<img class="bg1" src="images/bg/cloud1.png" alt="Cloud background image">
+          <img class="bg2" src="images/bg/cloud2.png" alt="Cloud background image">
+          <img class="bg3" src="images/bg/cloud3.png" alt="Cloud background image">
+				</div>
+				
+				<!-- Title of this section -->
+				<div class="title sub1">
+					<h1>Arts and Photography</h1>
+				</div>
+				
+				<!-- Animated slider for books -->
+				<div class="wrapper">
+					<div class="slider-container">
+						
+						<!-- Book's basic information -->
+						<div class="card-info">
+							<div class="card-img">
+								<a href="live-beautiful.html">
+									<img src="images//non-fiction/arts-and-photography/live-beautiful/pic1.jpeg" alt="Live Beautiful">
+								</a>
+							</div>
+							
+							<!-- Book's basic information -->
+							<div class="book-info">
+								<p class="book-price">$29.99</p>
+								<a href="live-beautiful.html">
+									<p class="book-title">Live Beautiful</p>
+								</a>
+								<p class="book-author">By ATHENA CALDERONE</p>
+							</div>
+						</div>
+						
+						<!-- Book's basic information -->
+						<div class="card-info">
+							<div class="card-img">
+								<a href="wreck-this-journal.html">
+									<img src="images/non-fiction/arts-and-photography/wreck-this-journal/pic1.jpeg" alt="Wreck This Journal ">
+								</a>
+							</div>
+							
+							<div class="book-info">
+								<p class="book-price">$11.06</p>
+								<a href="wreck-this-journal.html">
+									<p class="book-title">Wreck This Journal</p>
+								</a>
+								<p class="book-author">By KERI SMITH</p>
+							</div>
+						</div>
+						
+						<!-- Book's basic information -->
+						<div class="card-info">
+							<div class="card-img">
+								<a href="cinema-speculation.html">
+									<img src="images/non-fiction/arts-and-photography/cinema-speculation/pic1.jpeg" alt="Cinema Speculation">
+								</a>
+							</div>
+							
+							<div class="book-info">
+								<p class="book-price">$21.99</p>
+								<a href="cinema-speculation.html">
+									<p class="book-title">Cinema Speculation</p>
+								</a>
+								<p class="book-author">By QUENTIN TARANTINO</p>
+							</div>
+						</div>
+						
+						<!-- Book's basic information -->
+						<div class="card-info">
+							<div class="card-img">
+								<a href="draw-a-circle.html">
+									<img src="images/non-fiction/arts-and-photography/draw-the-circle/pic1.jpeg" alt="Draw the Circle">
+								</a>
+							</div>
+        
+							<div class="book-info">
+								<p class="book-price">$16.99</p>
+								<a href="draw-a-circle.html">
+									<p class="book-title">Draw the Circle</p>
+								</a>
+								<p class="book-author">By MARK BATTERSON</p>
+							</div>
+						</div>
+               
+						<!-- Book's basic information -->
+						<div class="card-info">
+							<div class="card-img">
+								<a href="the-joy-of-house.html">
+									<img src="images/non-fiction/arts-and-photography/the-joy-of-house/pic1.jpeg" alt="The Joy of Home ">
+								</a>
+							</div>
+        
+							<div class="book-info">
+								<p class="book-price">$42.30</p>
+								<a href="the-joy-of-house.html">
+									<p class="book-title">The Joy of Home</p>
+								</a>
+								<p class="book-author">By ASHLEY GILBREATH</p>
+							</div>
+						</div>
+
+						<!-- Book's basic information -->
+						<div class="card-info">
+							<div class="card-img">
+								<a href="tom-ford-002.html">
+									<img src="images/non-fiction/arts-and-photography/tom-ford-002/pic1.jpg" alt="Tom Ford 002">
+								</a>
+							</div>
+        
+							<div class="book-info">
+								<p class="book-price">$75.99</p>
+								<a href="tom-ford-002.html">
+									<p class="book-title">Tom Ford 002</p>
+								</a>
+								<p class="book-author">By TOM FORD</p>
+							</div>
+						</div>
+						
+						<!-- Book's basic information -->
+						<div class="card-info">
+							<div class="card-img">
+								<a href="the-dot.html">
+									<img src="images/non-fiction/arts-and-photography/the-dot/pic1.jpeg" alt="The Dot">
+								</a>
+							</div>
+      
+							<div class="book-info">
+								<p class="book-price">$10.59</p>
+								<a href="the-dot.html">
+									<p class="book-title">The Dot</p>
+								</a>
+								<p class="book-author">By PETER H REYNOLDS</p>
+							</div>
+						</div>
+						
+						<!-- Book's basic information -->
+						<div class="card-info">
+							<div class="card-img">
+								<a href="live-beautiful.html">
+									<img src="images//non-fiction/arts-and-photography/live-beautiful/pic1.jpeg" alt="Live Beautiful">
+								</a>
+							</div>
+            
+						<div class="book-info">
+							<p class="book-price">$29.99</p>
+							<a href="live-beautiful.html">
+								<p class="book-title">Live Beautiful</p>
+							</a>
+							<p class="book-author">By ATHENA CALDERONE</p>
+						</div>
+					</div>
+
+					<!-- Book's basic information -->
+					<div class="card-info">
+						<div class="card-img">
+							<a href="wreck-this-journal.html">
+								<img src="images/non-fiction/arts-and-photography/wreck-this-journal/pic1.jpeg" alt="Wreck This Journal ">
+							</a>
+						</div>
+        
+						<div class="book-info">
+							<p class="book-price">$11.06</p>
+							<a href="wreck-this-journal.html">
+								<p class="book-title">Wreck This Journal</p>
+							</a>
+							<p class="book-author">By KERI SMITH</p>
+						</div>
+					</div>
+
+					<!-- Book's basic information -->
+					<div class="card-info">
+						<div class="card-img">
+							<a href="cinema-speculation.html">
+								<img src="images/non-fiction/arts-and-photography/cinema-speculation/pic1.jpeg" alt="Cinema Speculation">
+							</a>
+						</div>
+        
+						<div class="book-info">
+							<p class="book-price">$21.99</p>
+							<a href="cinema-speculation.html">
+								<p class="book-title">Cinema Speculation</p>
+							</a>
+							<p class="book-author">By QUENTIN TARANTINO</p>
+						</div>
+					</div>
+
+					<!-- Book's basic information -->
+					<div class="card-info">
+						<div class="card-img">
+							<a href="draw-a-circle.html">
+								<img src="images/non-fiction/arts-and-photography/draw-the-circle/pic1.jpeg" alt="Draw the Circle">
+							</a>
+						</div>
+        
+						<div class="book-info">
+							<p class="book-price">$16.99</p>
+							<a href="draw-a-circle.html">
+								<p class="book-title">Draw the Circle</p>
+							</a>
+							<p class="book-author">By MARK BATTERSON</p>
+						</div>
+					</div>
+					
+					<!-- Book's basic information -->
+					<div class="card-info">
+						<div class="card-img">
+							<a href="the-joy-of-house.html">
+								<img src="images/non-fiction/arts-and-photography/the-joy-of-house/pic1.jpeg" alt="The Joy of Home ">
+							</a>
+						</div>
+        
+						<div class="book-info">
+							<p class="book-price">$42.30</p>
+							<a href="the-joy-of-house.html">
+								<p class="book-title">The Joy of Home</p>
+							</a>
+							<p class="book-author">By ASHLEY GILBREATH</p>
+						</div>
+					</div>
+
+					<!-- Book's basic information -->
+					<div class="card-info">
+						<div class="card-img">
+							<a href="tom-ford-002.html">
+								<img src="images/non-fiction/arts-and-photography/tom-ford-002/pic1.jpg" alt="Tom Ford 002">
+							</a>
+						</div>
+        
+						<div class="book-info">
+							<p class="book-price">$75.99</p>
+							<a href="tom-ford-002.html">
+								<p class="book-title">Tom Ford 002</p>
+							</a>
+							<p class="book-author">By TOM FORD</p>
+						</div>
+					</div>
+
+					<!-- Book's basic information -->
+					<div class="card-info">
+						<div class="card-img">
+							<a href="the-dot.html">
+								<img src="images/non-fiction/arts-and-photography/the-dot/pic1.jpeg" alt="The Dot">
+							</a>
+						</div>
+        
+						<div class="book-info">
+							<p class="book-price">$10.59</p>
+							<a href="the-dot.html">
+								<p class="book-title">The Dot</p>
+							</a>
+							<p class="book-author">By PETER H REYNOLDS</p>
+						</div>
+					</div>    
+				</div>
+			</div>
+  
+			<!-- See all button for user to discover more books in this sub category -->
+			<div class="btn-align">
+				<a href="404-page.html">
+					<button class="btn see-all">
+						See all
+					</button>
+				</a>
+			</div>
+		</div>
+	</section>
+	
+	<!-- Historical category section -->
+	<section id="sub-category2-section">
+		<div class="sub-category2">
+
+			<!-- Cloud background images -->
+			<div class="bg">
+				<img class="bg4" src="images/bg/cloud4.png" alt="Cloud Background Image">
+				<img class="bg5" src="images/bg/cloud5.png" alt="Cloud Background Image">
+			</div>
+  
+			<!-- Title of this section -->
+			<div class="title sub2">
+				<h1>Cooking and Food</h1>
+			</div>
+			
+			<!-- Animated slider for books -->
+			<div class="wrapper">
+				<div class="slider-container">
+
+					<!-- Book's basic information -->
+					<div class="card-info">
+						<div class="card-img">
+							<a href="the-art-of-seduction.html">
+								<img src="images/non-fiction/cooking-and-food/the-art-of-seduction/pic1.jpeg" alt="The Art of Seduction">
+							</a>
+						</div>
+            
+						<div class="book-info">
+							<p class="book-price">$22.49</p>
+							<a href="the-art-of-seduction.html">
+								<p class="book-title">The Art of Seduction</p>
+							</a>
+							
+							<p class="book-author">By ROBERT GREENE</p>
+						</div>
+					</div>
+					
+					<!-- Book's basic information -->
+					<div class="card-info">
+						<div class="card-img">
+							<a href="ottolenghi-simple.html">
+								<img src="images/non-fiction/cooking-and-food/ottolenghi-simple/pic1.jpeg" alt="Ottolenghi Simple">
+							</a>
+						</div>
+        
+						<div class="book-info">
+							<p class="book-price">$19.29</p>
+							<a href="ottolenghi-simple.html">
+								<p class="book-title">Ottolenghi Simple</p>
+							</a>
+							<p class="book-author">By YOTAM OTTOLENGHI</p>
+						</div>
+					</div>
+
+					<!-- Book's basic information -->
+					<div class="card-info">
+						<div class="card-img">
+							<a href="carnivore-diet.html">
+								<img src="images/non-fiction/cooking-and-food/carnivore-diet/pic1.jpeg" alt="Carnivore Diet">
+							</a>
+						</div>
+        
+						<div class="book-info">
+							<p class="book-price">$19.79</p>
+							<a href="carnivore-diet.html">
+								<p class="book-title">Carnivore Diet</p>
+							</a>
+							<p class="book-author">By SHAWN BAKER</p>
+						</div>
+					</div>
+
+					<!-- Book's basic information -->
+					<div class="card-info">
+						<div class="card-img">
+							<a href="the-drunken-botanist.html">
+								<img src="images/non-fiction/cooking-and-food/the-drunken-botanist/pic1.jpeg" alt="The Drunken Botanist">
+							</a>
+						</div>
+						
+						<div class="book-info">
+							<p class="book-price">$16.05</p>
+							<a href="the-drunken-botanist.html">
+								<p class="book-title">The Drunken Botanist</p></a>
+								<p class="book-author">By AMY STEWART</p>
+							</div>
+						</div>
+						
+						<!-- Book's basic information -->
+						<div class="card-info">
+							<div class="card-img">
+								<a href="the-juicing-bible.html">
+									<img src="images/non-fiction/cooking-and-food/the-juicing-bible/pic1.jpeg" alt="The Juicing Bible">
+								</a>
+							</div>
+        
+							<div class="book-info">
+								<p class="book-price">$13.79</p>
+								<a href="the-juicing-bible.html">
+									<p class="book-title">The Juicing Bible</p>
+								</a>
+								<p class="book-author">By PAT CROCKER</p>
+							</div>
+						</div>
+
+						<!-- Book's basic information -->
+						<div class="card-info">
+							<div class="card-img">
+								<a href="slow-drink.html">
+									<img src="images/non-fiction/cooking-and-food/slow-drink/pic1.jpeg" alt="Slow Drinks">
+								</a>
+							</div>
+							
+							<div class="book-info">
+								<p class="book-price">$30.00</p>
+								<a href="slow-drink.html">
+									<p class="book-title">Slow Drinks</p>
+								</a>
+								<p class="book-author">By DANNY CHILDS</p>
+							</div>
+						</div>
+
+						<!-- Book's basic information -->
+						<div class="card-info">
+							<div class="card-img">
+								<a href="diabete-for-dummies.html">
+									<img src="images/fiction-category/historical/outlander/pic1.jpeg" alt="Diabetes For Dummies">
+								</a>
+							</div>
+        
+							<div class="book-info">
+								<p class="book-price">$14.39</p>
+								<a href="diabete-for-dummies.html">
+									<p class="book-title">Diabetes For Dummies</p>
+								</a>
+								<p class="book-author">By DALAN L. RUBIN</p>
+							</div>
+						</div>
+						
+						<!-- Book's basic information -->
+					<div class="card-info">
+						<div class="card-img">
+							<a href="the-art-of-seduction.html">
+								<img src="images/non-fiction/cooking-and-food/the-art-of-seduction/pic1.jpeg" alt="The Art of Seduction">
+							</a>
+						</div>
+            
+						<div class="book-info">
+							<p class="book-price">$22.49</p>
+							<a href="the-art-of-seduction.html">
+								<p class="book-title">The Art of Seduction</p>
+							</a>
+							
+							<p class="book-author">By ROBERT GREENE</p>
+						</div>
+					</div>
+					
+					<!-- Book's basic information -->
+					<div class="card-info">
+						<div class="card-img">
+							<a href="ottolenghi-simple.html">
+								<img src="images/non-fiction/cooking-and-food/ottolenghi-simple/pic1.jpeg" alt="Ottolenghi Simple">
+							</a>
+						</div>
+        
+						<div class="book-info">
+							<p class="book-price">$19.29</p>
+							<a href="ottolenghi-simple.html">
+								<p class="book-title">Ottolenghi Simple</p>
+							</a>
+							<p class="book-author">By YOTAM OTTOLENGHI</p>
+						</div>
+					</div>
+
+					<!-- Book's basic information -->
+					<div class="card-info">
+						<div class="card-img">
+							<a href="carnivore-diet.html">
+								<img src="images/non-fiction/cooking-and-food/carnivore-diet/pic1.jpeg" alt="Carnivore Diet">
+							</a>
+						</div>
+        
+						<div class="book-info">
+							<p class="book-price">$19.79</p>
+							<a href="carnivore-diet.html">
+								<p class="book-title">Carnivore Diet</p>
+							</a>
+							<p class="book-author">By SHAWN BAKER</p>
+						</div>
+					</div>
+
+					<!-- Book's basic information -->
+					<div class="card-info">
+						<div class="card-img">
+							<a href="the-drunken-botanist.html">
+								<img src="images/non-fiction/cooking-and-food/the-drunken-botanist/pic1.jpeg" alt="The Drunken Botanist">
+							</a>
+						</div>
+						
+						<div class="book-info">
+							<p class="book-price">$16.05</p>
+							<a href="the-drunken-botanist.html">
+								<p class="book-title">The Drunken Botanist</p></a>
+								<p class="book-author">By AMY STEWART</p>
+							</div>
+						</div>
+						
+						<!-- Book's basic information -->
+						<div class="card-info">
+							<div class="card-img">
+								<a href="the-juicing-bible.html">
+									<img src="images/non-fiction/cooking-and-food/the-juicing-bible/pic1.jpeg" alt="The Juicing Bible">
+								</a>
+							</div>
+        
+							<div class="book-info">
+								<p class="book-price">$13.79</p>
+								<a href="the-juicing-bible.html">
+									<p class="book-title">The Juicing Bible</p>
+								</a>
+								<p class="book-author">By PAT CROCKER</p>
+							</div>
+						</div>
+
+						<!-- Book's basic information -->
+						<div class="card-info">
+							<div class="card-img">
+								<a href="slow-drink.html">
+									<img src="images/non-fiction/cooking-and-food/slow-drink/pic1.jpeg" alt="Slow Drinks">
+								</a>
+							</div>
+							
+							<div class="book-info">
+								<p class="book-price">$30.00</p>
+								<a href="slow-drink.html">
+									<p class="book-title">Slow Drinks</p>
+								</a>
+								<p class="book-author">By DANNY CHILDS</p>
+							</div>
+						</div>
+
+						<!-- Book's basic information -->
+						<div class="card-info">
+							<div class="card-img">
+								<a href="diabete-for-dummies.html">
+									<img src="images/fiction-category/historical/outlander/pic1.jpeg" alt="Diabetes For Dummies">
+								</a>
+							</div>
+        
+							<div class="book-info">
+								<p class="book-price">$14.39</p>
+								<a href="diabete-for-dummies.html">
+									<p class="book-title">Diabetes For Dummies</p>
+								</a>
+								<p class="book-author">By DALAN L. RUBIN</p>
+							</div>
+						</div>
+					</div>
+				</div>
+  
+				<!-- See all button for user to discover more books in this category -->
+				<div class="btn-align">
+					<a href="404-page.html">
+						<button class="btn see-all">
+							See all
+						</button>
+					</a>
+				</div>
+			</div>
+		</section>
+  
+		<!-- More sub categories for user to discover -->
+		<section id="discover-more-section">
+
+			<!-- Cloud background images -->
+			<div class="bg">
+				<img class="bg6" src="images/bg/cloud7.png" alt="Cloud Background Images">
+        <img class="bg7" src="images/bg/cloud7.png" alt="Cloud Background Images">
+			</div>
+
+			<!-- Title of this section -->
+      <div class="title discovery">
+				<h1>
+					Discover More
+				</h1>
+			</div>
+
+			<!-- Some sub categories for user to choose -->
+			<div class="category-list">
+				<div class="sub-category6">
+					<div class="category-name">
+						<a href="404-page.html">Travel</a>
+					</div>
+				</div>
+
+				<div class="sub-category7">
+					<div class="category-name">
+						<a href="404-page.html">History</a>
+					</div>
+				</div>
+
+				<div class="sub-category8">
+					<div class="category-name">
+						<a href="404-page.html">Self-help</a>
+					</div>
+				</div>
+			</div>
+    </section>
+  
+    <!-- Footer including the bookstore's introduction, all the navigation links -->
+		<footer>
+      <div class="about-store">
+          <a href="index.html">
+              <h2>bookheart.</h2>
+          </a>
+
+          <!-- Introduction about the bookstore -->
+          <p>
+              Welcome to our bookstore! We are dedicated to providing you with a vast selection of books to satisfy all of your reading interests. 
+              Whether you're looking for a best-selling novel, a classic work of literature, a fascinating biography, or an engaging children's book, we have something for everyone.            
+          </p>
+
+          <div class="social-media">
+              <a href="404-page.html">
+                  <i class="fa-brands fa-facebook"></i>
+                </a>
+      
+                <a href="404-page.html">
+                  <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+      
+                <a href="404-page.html">
+                  <i class="fa-brands fa-instagram"></i>
+                </a>
+          </div>
+      </div>
+
+      <div class="footer-col">
+
+          <!-- About us section -->
+          <h3 class="footer-heading">About us</h3>
+          <ul>
+              <li><a href="index.html"> Home</a></li>
+              <li><a href="404-page.html"> Privacy Policy</a></li>
+              <li><a href="404-page.html"> Terms</a></li>
+          </ul>
+      </div>
+
+      <div class="footer-col">
+
+          <!-- Categories in bookstore -->
+          <h3 class="footer-heading">Categories</h3>
+
+          <ul>
+              <li>
+                  <a href="fiction-category.html">Fiction</a>
+              </li>
+
+              <li>
+                  <a href="non-fiction-category.html">Non-Fiction</a>
+              </li>
+              
+              <li>
+                  <a href="404-page.html">Children's Books</a>
+              </li>
+
+              <li>
+                  <a href="404-page.html">Reference Books</a>
+              </li>
+
+              <li>
+                  <a href="404-page.html">Textbooks</a>
+              </li>
+          </ul>
+      </div>
+
+      <div class="footer-col">
+
+          <!-- Contact information -->
+          <h3 class="footer-heading">Get In Touch</h3>
+          <ul>
+              <li>
+                  <a href="contact-page.html">Contact Us</a>
+              </li>
+              <li>
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.0717236673645!2d106.69357801478574!3d10.728951492353815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752fbea5fe3db1%3A0xfae94aca5709003f!2sRMIT%20University%20Vietnam%20-%20Saigon%20South%20campus!5e0!3m2!1sen!2s!4v1680774148619!5m2!1sen!2s" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </li>
+              
+          </ul>
+      </div>
+
+      <!-- Copyright -->
+      <div class="copyright">
+          <p>© Copyright 2023 by Ha Anh</p>
+      </div>
+  </footer>
+
+	<!-- Back to top button to bring customer back to the top of page -->
+	<div class="back-to-top-button">
+    <a href="#top">
+        <button class="btn back-to-top">
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
+    </a>
+  </div>
+
+</main>
+
+   <script src="main.js"></script>
+</body>
+</html>

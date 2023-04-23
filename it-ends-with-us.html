@@ -1,0 +1,411 @@
+<!-- 
+    RMIT University Vietnam
+    Course: COSC2430 Web Programming
+    Semester: 2023A
+    Assessment: Assignment 1
+    Author: Nguyen Tran Ha Anh
+    ID: s3938490
+    Acknowledgement:
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>It Ends with Us</title>
+  <link rel="icon" href="images/icon.png" type="image/png"/>
+  <link rel="stylesheet" href="styles/general.css">
+  <link rel="stylesheet" href="styles/book-description.css">
+  <!-- <link rel="stylesheet" href="styles/contact-us.css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">   
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Fasthand&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+</head>
+<body id="top">
+  <!-- Sidebar navigation for mobile devices -->
+  <div class="sidebar close">
+
+    <!-- Navigation links for sidebar menu -->
+    <ul class="nav-links">
+      <li class="active-link">
+        <a href="index.html">
+          <span class="link-name">Home</span>
+        </a>
+      </li>
+
+      <li>
+        <div class="category-link">
+          <a href="#fiction-category-section">
+            <span class="link-name">Categories</span>
+          </a>
+          <i class="fa-solid fa-chevron-down arrow"></i>
+        </div>
+
+        <!-- Sub menu for categories -->
+        <ul class="sub-menu">
+          <li><a class="link-name" href="fiction-category.html">Fiction</a></li>
+          <li><a href="non-fiction-category.html">Non-Fiction</a></li>
+          <li><a href="404-page.html">Children's Books</a></li>
+          <li><a href="404-page.html">Reference Books</a></li>
+          <li><a href="404-page.html">Textbooks</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="index.html#events-section">
+          <span class="link-name">Events</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="contact-page.html">
+          <span class="link-name">Contact</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Navigation bar for desktop devices -->
+  <header>
+
+      <!-- Navigation links for desktop navigation menu -->
+      <div class="navbar">
+
+          <!-- Left section navigation bar including hamburger icon and Home, Categories link -->
+          <div class="left-section">
+
+              <!-- Hamburger icon for mobile devices -->
+              <div class="hamburger-icon">
+                  <i class="fa-solid fa-bars"></i>
+              </div>
+
+              <!-- Home and Categories link in desktop navigation bar -->
+              <div class="left-nav">
+                  <ul>
+                      <li>
+                          <a class="nav-list" href="index.html">Home</a>
+                      </li>
+
+                      <li class="category-nav">
+                          <a class="nav-list" href="#fiction-category-section">Categories</a>
+
+                          <!-- Submenu for Categories -->
+                          <ul class="dropdown">
+                              <li><a href="fiction-category.html">Fiction</a></li>
+                              <li><a href="non-fiction-category.html">Non-Fiction</a></li>
+                              <li><a href="404-page.html">Children's Books</a></li>
+                              <li><a href="404-page.html">Reference Books</a></li>
+                              <li><a href="404-page.html">Textbooks</a></li>
+                          </ul>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+
+          <!-- Bookstore's logo -->
+          <div class="middle-section">
+              <a class="logo" href="index.html">bookheart.</a>
+          </div>
+
+          <!-- Right section navigation bar including Events, Contact link and some icons -->
+          <div class="right-section">
+              <div class="right-nav">
+                  <a class="nav-list" href="#events-section">Events</a>
+                  <a class="nav-list" href="contact-page.html">Contact</a>
+              </div>
+
+              <!-- Including the shopping cart icon, user icon and darkmode button -->
+              <div class="icon">
+
+                  <!-- Show the number of book in user's cart -->
+                  <div class="cart-icon" onclick="dropCart()">
+                      <span class="cart">
+                          <i class="fa-solid fa-cart-shopping"></i>
+                      </span>
+                      <span class="book"></span>
+                      <span class="purchase-amount">1</span>
+                      
+                      <!-- Detailed user's cart information -->
+                      <div id="user-cart" class="cart-info">
+                          <div class="selected-book">
+                              <div class="selected-book-img">
+                                  <img src="images/fiction-category/book1/book-in-cart.jpeg" alt="Selected Book">
+                              </div>
+                              
+                              <div class="slected-book-info">
+                                  <p class="selected-book-name">It ends with us</p>
+                                  <p class="selected-book-price">$9.95</p>
+                                  <p class="quantity">x 1</p>
+                              </div>
+                          </div>
+
+                          <div class="subtotal">
+                              <p class="total">Subtotal:</p>
+                              <p class="price">$9.95</p>
+                          </div>
+
+                          <div class="preview-button">
+                              <button class="view-cart">View cart</button>
+                              <button class="checkout">Checkout</button>
+                          </div>
+                      </div>
+
+                  </div>
+
+                  <!-- User icon -->
+                  <i class="fa-solid fa-user"></i>
+
+                  <!-- Darkmode button -->
+                  <i class="fa-solid fa-moon" id="icon"></i>
+              </div>
+          </div>
+      </div>
+
+  </header>
+
+  <!-- Including the breadcrumb, book's overview section, book's description section and footer-->
+  <main>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb book-description">
+      <a href="index.html">Home</a>
+      <p>/</p>
+      <a href="fiction-category.html">Fiction</a>
+      <p>/</p>
+      <a href="fiction-category.html#sub-category1-section">Romance</a>
+      <p>/</p>
+      <a href="it-ends-with-us.html">It Ends with Us</a>
+    </div>
+  
+    <!-- Book's overview section including book's images and book's summary information -->
+    <section id="book-overview-section">
+      <div class="book-overview">
+
+        <!-- Some book's images -->
+        <div class="images">
+          <div class="big-img">
+            <img src="images/fiction-category/romance/it-ends-with-us/book-in-cart.jpeg" alt="It Ends with Us">
+          </div>
+  
+          <div class="small-img">
+            <img src="images/fiction-category/romance/it-ends-with-us/pic2.jpg" alt="Sample page">
+            <img src="images/fiction-category/romance/it-ends-with-us/pic3.jpg" alt="Sample page">
+            <img src="images/fiction-category/romance/it-ends-with-us/book-in-cart.jpeg" alt="Sample page">
+  
+          </div>
+        </div>
+  
+        <!-- Book's summary description -->
+        <div class="overview">
+
+          <!-- Book's name -->
+          <div class="book-name">
+            <h3>It Ends with Us</h3>
+            <h5>By COLLEEN HOOVER</h5>
+          </div>
+  
+          <!-- Supplier information -->
+           <div class="supplier-info">
+            <span>Supplier: </span>
+            <span class="supplier name">Amazon</span>
+          </div>
+  
+          <!-- Publisher information -->
+          <div class="publisher-info">
+            <span>Publisher: </span>
+            <span class="publisher name">Atria Books; Standard Edition</span>
+          </div>
+  
+          <!-- Book's author -->
+          <div class="author-info">
+            <span>Author: </span>
+            <span class="author name">Colleen Hoover</span>
+          </div>
+    
+          <!-- Book's rate based on users -->
+          <div class="rate">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+  
+            <span>(10 votes)</span>
+          </div>
+  
+          <!-- Book's price -->
+          <div class="detailed-price">
+            <h3>$9.95</h3>
+          </div>
+  
+          <!-- Return and exchange policy -->
+          <div class="return">
+            <span>Return-exchange policy: </span>
+            <span class="policy">Return and exchange product in <strong>30 days</strong></span>
+          </div>
+          
+          <!-- Book's quantity -->
+          <div class="quantity">
+            <span class="user-quantity">Quantity:</span>
+            <span class="number">1</span>
+          </div>
+  
+          <!-- Add to cart and buy now button -->
+          <div class="button">
+            <button class="add-to-cart">Add to cart</button>
+            <button class="buy-now">Buy now</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Book's description -->
+    <section id="description-section">
+      <div class="description">
+        <div class="heading">
+          <h2>Book Description</h2>
+        </div>
+  
+        <div class="content">
+          <p>
+            <strong>
+              From the #1 New York Times bestselling author of It Starts with Us and All Your Perfects, 
+              a “brave and heartbreaking novel that digs its claws into you and doesn’t let go, long after you’ve finished it” 
+              (Anna Todd, New York Times bestselling author) about a workaholic with a too-good-to-be-true romance can’t stop thinking about her first love—soon to be a major motion picture starring Blake Lively and Justin Baldoni.
+            </strong>
+          </p>
+          
+          <p>
+            Lily hasn't always had it easy, but that's never stopped her from working hard for the life she wants. She's come a long way from the small town in Maine where she grew up - she graduated from college,
+            moved to Boston, and started her own business. So when she feels a spark with a gorgeous neurosurgeon named Ryle Kincaid, everything in Lily's life suddenly seems almost too good to be true.
+          </p>
+  
+          <p>
+            Ryle is assertive, stubborn, maybe even a little arrogant. He's also sensitive, brilliant, 
+            and has a total soft spot for Lily, but Ryle's complete aversion to relationships is disturbing.
+          </p>
+  
+         <p>
+          As questions about her new relationship overwhelm her, so do thoughts of Atlas Corrigan - her first love and a link to the past she left behind.
+          He was her kindred spirit, her protector. When Atlas suddenly reappears, everything Lily has built with Ryle is threatened. 
+          With this bold and deeply personal novel, Colleen Hoover delivers a heart-wrenching story that breaks exciting new ground for her as a writer. 
+          It Ends With Us is an unforgettable tale of love that comes at the ultimate price.
+         </p>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Footer including the bookstore's introduction, all the navigation links -->
+    <footer>
+      <div class="about-store">
+          <a href="index.html">
+              <h2>bookheart.</h2>
+          </a>
+
+          <!-- Introduction about the bookstore -->
+          <p>
+              Welcome to our bookstore! We are dedicated to providing you with a vast selection of books to satisfy all of your reading interests. 
+              Whether you're looking for a best-selling novel, a classic work of literature, a fascinating biography, or an engaging children's book, we have something for everyone.            
+          </p>
+
+          <div class="social-media">
+              <a href="404-page.html">
+                  <i class="fa-brands fa-facebook"></i>
+                </a>
+      
+                <a href="404-page.html">
+                  <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+      
+                <a href="404-page.html">
+                  <i class="fa-brands fa-instagram"></i>
+                </a>
+          </div>
+      </div>
+
+      <div class="footer-col">
+
+          <!-- About us section -->
+          <h3 class="footer-heading">About us</h3>
+          <ul>
+              <li><a href="index.html"> Home</a></li>
+              <li><a href="404-page.html"> Privacy Policy</a></li>
+              <li><a href="404-page.html"> Terms</a></li>
+          </ul>
+      </div>
+
+      <div class="footer-col">
+
+          <!-- Categories in bookstore -->
+          <h3 class="footer-heading">Categories</h3>
+
+          <ul>
+              <li>
+                  <a href="fiction-category.html">Fiction</a>
+              </li>
+
+              <li>
+                  <a href="non-fiction-category.html">Non-Fiction</a>
+              </li>
+              
+              <li>
+                  <a href="404-page.html">Children's Books</a>
+              </li>
+
+              <li>
+                  <a href="404-page.html">Reference Books</a>
+              </li>
+
+              <li>
+                  <a href="404-page.html">Textbooks</a>
+              </li>
+          </ul>
+      </div>
+
+      <div class="footer-col">
+
+          <!-- Contact information -->
+          <h3 class="footer-heading">Get In Touch</h3>
+          <ul>
+              <li>
+                  <a href="contact-page.html">Contact Us</a>
+              </li>
+              <li>
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.0717236673645!2d106.69357801478574!3d10.728951492353815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752fbea5fe3db1%3A0xfae94aca5709003f!2sRMIT%20University%20Vietnam%20-%20Saigon%20South%20campus!5e0!3m2!1sen!2s!4v1680774148619!5m2!1sen!2s" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </li>
+              
+          </ul>
+      </div>
+
+      <!-- Copyright -->
+      <div class="copyright">
+          <p>© Copyright 2023 by Ha Anh</p>
+      </div>
+  </footer>
+
+    <!-- Back to top button to bring customer back to the top of page -->
+   <div class="back-to-top-button">
+    <a href="#top">
+        <button class="btn back-to-top">
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
+    </a>
+  </div>
+  </main>
+
+ <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,577 @@
+/* 
+    RMIT University Vietnam
+    Course: COSC2430 Web Programming
+    Semester: 2023A
+    Assessment: Assignment 1
+    Author: Nguyen Tran Ha Anh
+    ID: s3938490
+    Acknowledgement:
+ */
+ 
+/* By default, the sidebar would be hiden when using in a desktop version */
+.sidebar {
+  display: none;
+}
+
+/* -------------------------------------------- For the header and footer in mobile version --------------------------------------------- */
+
+@media only screen and (max-width: 960px) {
+
+  /* Change the main to relative position and add space on top of it to make the header had fixed position */
+  main {
+    position: relative;
+    top: 90px;
+  }
+
+  /* Change the font size of the logo */
+  .logo {
+    font-size: 40px;
+  }
+
+  /* Hide the navigation links in the header */
+  .left-nav, .right-nav {
+    display: none;
+  }
+
+  /* Change the position of the hamburger-icon */
+  .left-section {
+    justify-content: flex-start;
+  }
+
+  /* Set the width for logo section */
+  .middle-section {
+    width: 250px;
+  }
+
+  /* Change the position of icons */
+  .right-section {
+    justify-content: flex-end;
+  }
+
+  /* Change the space of the darkmode icon */
+  #icon {
+    margin: 0 10px;
+  }
+  
+  /* Resize the width of the hamburger icon */
+  .hamburger-icon {
+    display: flex;
+    align-items: center;
+    width: 50px;
+  }
+
+  /* Resize the font of the hamburger icon */
+  .hamburger-icon i {
+    margin-left: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #2F70AF;
+  }
+
+  /* Change the header become fixed position */
+  header {
+    width: calc(100% - 200px);
+    position: relative;
+    left: 200px;
+    position: fixed;
+    z-index: 100000;
+  }
+
+  /* When the sidebar close, the header will cover the whole width */
+  .sidebar.close ~ header {
+    left: 0;
+    width: 100%;
+  }
+
+  /* When the sidebar close, the sidebar will be pushed to the left side so that users could not see */
+  .sidebar.close {
+    width: 0;
+    left: -200px;
+  }
+  /* The sidebar had a fixed position so that when users scrolling the header would not move*/ 
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 200px;
+    background: #001B30;
+    transition: all .5s ease;
+    z-index: 20000;
+    display: block;
+  }
+
+  /* ALl th navigation links are displayed in a column */
+  .sidebar .nav-links {
+    height: 100%;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* All the submenu for Category would display in centre */
+  .sidebar .nav-links li .category-link {
+    display: flex;
+    align-items: center;
+  }
+
+  /* When user hover on a link or in that page, the navigation link will change the background color */
+  .sidebar .nav-links li:hover, .active-link {
+    background: #2F70AF;
+  }
+
+  /* Set the position for all navigation links */
+  .sidebar .nav-links li {
+    list-style: none;
+    position: relative;
+    transition: all .4s ease;
+  }
+  
+  /* Decorate the navigation links */
+  .sidebar .nav-links li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    height: 50px;
+    margin-left: 20px;
+    text-transform: uppercase;
+  }
+
+  /* Css the arrow next to the Categories link */
+  .sidebar .nav-links li .arrow {
+    color: white;
+    margin-left: 20px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all .3s ease;
+  }
+
+  /* When users click to the arrow, the arrow will be rotated */
+  .sidebar .nav-links li.showMenu .arrow {
+    transform: rotate(-180deg);
+  }
+  
+  /* Change the colour of the links */
+  .sidebar .nav-links li a .link-name {
+    font-size: 18;
+    font-weight: 400;
+    color: #fff;
+  }
+
+  /* Decorate the submenu */
+  .sidebar .nav-links li .sub-menu {
+    display: none;
+    margin-top: 0px;
+    background: #2F70AF;
+    padding: 6px 6px 14px 0px;
+  }
+  
+  /* When users click to the arrow, the parent of it will toggle a show menu class which display all the submenu */
+  .sidebar .nav-links li.showMenu .sub-menu {
+    display: block;
+  }
+
+  /* Decorate the navigation inks in the submenu */
+  .sidebar .nav-links li .sub-menu a {
+    color: #fff;
+    font-size: 15px;
+    padding: 20px 0;
+    height: 30px;
+    white-space: nowrap;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+  }
+  
+  /* When hover the submenu links, it would increase the opacity of text for users to read it clearly */
+  .sidebar .nav-links li .sub-menu a:hover {
+    opacity: 1;
+  }
+
+   /* Resize the font size of the title */
+   .title h1 {
+    margin-top: 0;
+    font-size: 50px;
+  }
+
+  /* Resize the button */
+  .btn {
+    margin: 0;
+  }
+
+  /* Resize the breadcrumb */
+  .breadcrumb {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Decrease the size of the text in breadcrumb */
+  .breadcrumb a {
+    font-size: 14px;
+  }
+
+  /* Change the layout of the footer */
+  footer {
+    flex-direction: column;
+    height: fit-content;
+    text-align: center;
+  }
+
+  /* Change the display of the bookstore's introduction */
+  .about-store {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .social-media {
+    margin: 10px 0;
+  }
+  
+  /* Change the width of the copyright line */
+  .copyright {
+    width: 100%;
+    margin-top: 5px;
+  }
+}
+
+/* -------------------------------------------- Design of the homepage anf category page for mobile version --------------------------------------------- */
+
+@media only screen and (max-width: 960px) {
+
+  /* -------------------------------------------- For homepage --------------------------------------------- */
+  /* Change the size of the banner section in homepage */
+  #banner-section1 {
+    height: 100vh;
+  }
+
+  /* Change the size of the banner */
+  .banner {
+    height: fit-content;
+  }
+
+  /* Change the design of the banner in homepage */
+  .banner-description {
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+  }
+
+  /* Change the layout of the content in banner in homepage */
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  /* Change the position of the book image */
+  .banner-bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Change the soxw of the book images */
+  .book-bg img {
+    max-width: 300px;
+  }
+
+  /* -------------------------------------------- For category page --------------------------------------------- */
+
+  /* Change the heihgt of the banner in category page  */
+  #banner-section2 {
+    height: 40vh;
+  }
+
+  /* Change the height of the banner */
+  .banner-content {
+    height: 60%;
+  }
+
+  /* Change the size of text in banner */
+  .banner {
+    font-size: 24px;
+  }
+
+  .category-page a {
+    font-size: 18px;
+  }
+
+
+  /* -------------------------------------------- For homepage and category pages --------------------------------------------- */
+
+  /* Change the hieght of the sub category section */
+  .sub-category1, .sub-category2 {
+    height: fit-content;
+  }
+  
+  /* Make the slider become smaller when using in mobile devices */
+  .wrapper {
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.3);
+    height: 350px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    width: 100%; 
+    display: flex;
+    align-items: center;
+  }
+
+  /* Resize the height of the book's card in slder */
+  .card-info {
+  height: 400px;
+  object-fit: cover;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: 14px;
+  width: 250px;
+}
+
+/* Change the size of the images become smaller */
+.card-img img {
+  width: 110px;
+  height: 160px;
+}
+  
+
+  /* -------------------------------------------- For homepage and category pages --------------------------------------------- */
+
+  /* Change the height of the discover more section */
+  #discover-more-section {
+    height: fit-content;
+    padding-bottom: 30px;
+  }
+
+  /* Change the size of the category list's design  */
+  .category-list {
+    height: fit-content;
+    width: 90%;
+  }
+
+  /* Change the size of each category */
+  .category1,
+  .category2,
+  .category3,
+  .sub-category3,
+  .sub-category4,
+  .sub-category5,
+  .sub-category6,
+  .sub-category7,
+  .sub-category8 {
+    height: 100px;
+    width: 100px;
+  }
+
+  /* Change the font size of the text in each category */
+  .category-name a {
+    font-size: 16px;
+  }
+  
+
+  /* -------------------------------------------- For homepage --------------------------------------------- */
+
+  /* Add space between text in events section */
+  #events-section {
+    justify-content: space-around;
+    height: fit-content;
+    padding: 20px 0;
+  }
+
+  /* Change the font size of the content text in events section*/
+  .event-content {
+    font-size: 16px;
+  }
+
+
+  /* Change the design of the contact section */
+  .contact-content {
+    height: fit-content;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Change the size of the content in contact section */
+  .register-email,
+  .contact-info,
+  .video {
+    width: 90%;
+    margin: 10px 0;
+  }
+
+  /* Change the layout of the register email part */
+  .register-email {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Change the width of the email inout */
+  .register-email input {
+    width: 200px;
+  }
+}
+
+/* -------------------------------------------- For the book's description page in mobile version --------------------------------------------- */
+
+@media only screen and (max-width: 960px) {
+  
+  /* Change the height of the book's overview section */
+  #book-overview-section {
+    height: 120vh;
+  }
+
+  /* Change the layout of this section into a single cplumn */
+  .book-overview {
+    flex-direction: column;
+    height: 115vh;
+    flex-wrap: wrap;
+  }
+
+  /* Change the position of the images */
+  .images {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0;
+  }
+
+  /* Change the size of the big image */
+  .big-img img {
+    max-width: 200px;
+  }
+
+  /* Change the layout of three smaller images */
+  .small-img {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Change the size of the small images */
+  .small-img img {
+    width: 10%;
+  }
+
+  /* Add space for the overview part */
+  .overview {
+    margin: 0 20px;
+  }
+
+  /* Add space under the book's name */
+  .book-name {
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  /* Change the font size of the book's name */
+  .book-name h3 {
+    font-size: 18px;
+  }
+  
+  /* Change the font size of the book's author */
+  .book-name h5 {
+    font-size: 17px;
+  }
+
+  /* Decrease the soace between some general information */
+  .supplier-info,
+  .publisher-info,
+  .author-info {
+    margin: 0;
+  }
+
+  /* Change the layout of the buttons */
+  .button {
+    flex-direction: column;
+  }
+
+  /* resize the button */
+  .button button {
+    margin: 10px 0;
+    font-size: 16px;
+    font-family: sans-serif;
+    padding: 16px 50px;
+    width: 240px;
+    border-radius: 10px;
+  }
+
+  /* Change the height of description section */
+  #description-section {
+    height: fit-content;
+  }
+
+  /* Change the description section height to fit with any content */
+  .description {
+    height: fit-content;
+  }
+
+  /* Change the fonr size of the heading */
+  .heading {
+    font-size: 24px;
+  }
+
+}
+
+/* -------------------------------------------- For contact section in mobile version --------------------------------------------- */
+
+@media only screen and (max-width: 960px) {
+
+  /* Change the layout of the contact section into a single column */
+  #contact-form-section {
+    flex-direction: column;
+    height: fit-content;
+    padding-bottom: 30px;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  }
+
+  /* Move the content of the bookstore to under the contact form */
+  .backdrop {
+    position: static;
+    background: none;
+    justify-content: center;
+  }
+
+  /* Resize the contact form */
+  .container {
+    width: 80%;
+    padding: 10px 15px;
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  /* Resize the input to cove the full width */
+  .input-box, .contact-purpose  {
+    width: calc(100% - 50px);
+  }
+
+  /* Add space up and down the content */
+  .submit-btn input[type=submit],
+  .reset-btn input[type=reset] {
+    margin: 5px 0;
+  }
+
+  /* Change the size of the bookstore's information */
+  .bookstore-info {
+    width: 80%;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
+  }
+}
+
+
+
+
+
+
